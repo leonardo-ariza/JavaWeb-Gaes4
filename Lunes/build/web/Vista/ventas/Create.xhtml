@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVentasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{ventasController.selected.id}" title="#{bundle.CreateVentasTitle_id}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_mecanico}" for="mecanico" />
+                    <h:inputText id="mecanico" value="#{ventasController.selected.mecanico}" title="#{bundle.CreateVentasTitle_mecanico}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_mecanico}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_porcentaje}" for="porcentaje" />
+                    <h:inputText id="porcentaje" value="#{ventasController.selected.porcentaje}" title="#{bundle.CreateVentasTitle_porcentaje}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_porcentaje}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_marcaDelVehiculo}" for="marcaDelVehiculo" />
+                    <h:inputText id="marcaDelVehiculo" value="#{ventasController.selected.marcaDelVehiculo}" title="#{bundle.CreateVentasTitle_marcaDelVehiculo}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_marcaDelVehiculo}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_modeloVehiculo}" for="modeloVehiculo" />
+                    <h:inputText id="modeloVehiculo" value="#{ventasController.selected.modeloVehiculo}" title="#{bundle.CreateVentasTitle_modeloVehiculo}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_modeloVehiculo}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_matricula}" for="matricula" />
+                    <h:inputText id="matricula" value="#{ventasController.selected.matricula}" title="#{bundle.CreateVentasTitle_matricula}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_matricula}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_vin}" for="vin" />
+                    <h:inputText id="vin" value="#{ventasController.selected.vin}" title="#{bundle.CreateVentasTitle_vin}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_vin}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_fechaDeSolicitud}" for="fechaDeSolicitud" />
+                    <h:inputText id="fechaDeSolicitud" value="#{ventasController.selected.fechaDeSolicitud}" title="#{bundle.CreateVentasTitle_fechaDeSolicitud}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_fechaDeSolicitud}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_servicio}" for="servicio" />
+                    <h:inputText id="servicio" value="#{ventasController.selected.servicio}" title="#{bundle.CreateVentasTitle_servicio}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_servicio}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_producto}" for="producto" />
+                    <h:inputText id="producto" value="#{ventasController.selected.producto}" title="#{bundle.CreateVentasTitle_producto}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_producto}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{ventasController.selected.total}" title="#{bundle.CreateVentasTitle_total}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_total}"/>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_createdAt}" for="createdAt" />
+                    <h:inputText id="createdAt" value="#{ventasController.selected.createdAt}" title="#{bundle.CreateVentasTitle_createdAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_updatedAt}" for="updatedAt" />
+                    <h:inputText id="updatedAt" value="#{ventasController.selected.updatedAt}" title="#{bundle.CreateVentasTitle_updatedAt}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_inhabilitado}" for="inhabilitado" />
+                    <h:inputText id="inhabilitado" value="#{ventasController.selected.inhabilitado}" title="#{bundle.CreateVentasTitle_inhabilitado}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_inhabilitado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ventasController.create}" value="#{bundle.CreateVentasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ventasController.prepareList}" value="#{bundle.CreateVentasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateVentasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

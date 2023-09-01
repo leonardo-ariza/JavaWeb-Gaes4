@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMecanicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_id}"/>
+                    <h:outputText value="#{mecanicosController.selected.id}" title="#{bundle.ViewMecanicosTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_cedula}"/>
+                    <h:outputText value="#{mecanicosController.selected.cedula}" title="#{bundle.ViewMecanicosTitle_cedula}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_nombre}"/>
+                    <h:outputText value="#{mecanicosController.selected.nombre}" title="#{bundle.ViewMecanicosTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_apellido}"/>
+                    <h:outputText value="#{mecanicosController.selected.apellido}" title="#{bundle.ViewMecanicosTitle_apellido}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_direccion}"/>
+                    <h:outputText value="#{mecanicosController.selected.direccion}" title="#{bundle.ViewMecanicosTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_telefono}"/>
+                    <h:outputText value="#{mecanicosController.selected.telefono}" title="#{bundle.ViewMecanicosTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_email}"/>
+                    <h:outputText value="#{mecanicosController.selected.email}" title="#{bundle.ViewMecanicosTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_ciudad}"/>
+                    <h:outputText value="#{mecanicosController.selected.ciudad}" title="#{bundle.ViewMecanicosTitle_ciudad}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_especialidad}"/>
+                    <h:outputText value="#{mecanicosController.selected.especialidad}" title="#{bundle.ViewMecanicosTitle_especialidad}"/>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_createdAt}"/>
+                    <h:outputText value="#{mecanicosController.selected.createdAt}" title="#{bundle.ViewMecanicosTitle_createdAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_updatedAt}"/>
+                    <h:outputText value="#{mecanicosController.selected.updatedAt}" title="#{bundle.ViewMecanicosTitle_updatedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewMecanicosLabel_inhabilitado}"/>
+                    <h:outputText value="#{mecanicosController.selected.inhabilitado}" title="#{bundle.ViewMecanicosTitle_inhabilitado}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mecanicosController.destroyAndView}" value="#{bundle.ViewMecanicosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMecanicosEditLink}"/>
+                <br />
+                <h:commandLink action="#{mecanicosController.prepareCreate}" value="#{bundle.ViewMecanicosCreateLink}" />
+                <br />
+                <h:commandLink action="#{mecanicosController.prepareList}" value="#{bundle.ViewMecanicosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMecanicosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
